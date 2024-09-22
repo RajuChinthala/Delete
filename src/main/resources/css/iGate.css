@@ -1,0 +1,149 @@
+@CHARSET "ISO-8859-1";
+.body
+{
+	font-family:Arial;
+	font-size:12px; 
+	color:rgb(60%,70%,75%);
+}
+
+.site-wrapper
+{
+	width: 1234px;
+	min-height: 895px;
+	margin-left: auto;
+	margin-right: auto;
+	background: green;
+	border: solid 2px black; 
+}
+
+
+/* Header - Section */
+
+.clsHomeButton
+{
+	min-height: 30px;
+	width:150px;
+	background-color: gray;
+	color:white;
+}
+.clsMarquee
+	{
+	    font-family: monospace;
+	    font-size: xx-large;
+	    font-weight:300;
+	    font-variant: normal;
+	    font-style: inherit;
+	    color: purple;
+	}
+.header-wrapper
+{
+	width: 1234px;
+    height: 275px;
+    background: black;
+	
+}
+.header-image
+{
+	width: 1234px;
+    height: 250px;
+	background:brown;
+}
+
+.header-menu
+{
+	float:left; 
+	width: 1234px;
+    height: 30px;
+	background:#CCCCFF;
+	border:solid 1px black;
+}
+.header-home
+{
+	float:left;
+	width:90px;
+	height:50px;
+}
+.header-about
+{
+	float:left;
+	width:90px;
+	height:50px;
+}
+.header-login
+{
+	float:right;
+	width:80px;
+	height:50px;
+}
+
+.body-wrapper
+{
+	margin-top: 0.5px;
+    float: left;
+	width: 1234px;
+	height: 628px;
+	border: solid 1px black;
+	background: #FFFFFF;	
+}
+.left-wrapper
+{
+	float:left;
+	width: 328px;
+	height: 628px;
+	border: solid 1px black;
+	background: #CCFFFF;
+}
+
+.middle-wrapper
+{
+	float:left;
+	width:900px;
+	height: 628px;
+	border: solid 1px black;
+	background: #FAF4F5;
+	
+}
+.classFont
+{
+	font-variant: small-caps;
+	color: purple;
+}
+
+.footer-wrapper
+{
+	margin-top: 630px;
+	clear: clear;
+	width: 1234px;
+	height: 40px;
+	background: #CCCCFF;
+}
+div p
+	{
+	    margin:0px;
+	}
+.menu_font
+{
+	   color:blue;
+	   font-style:oblique;
+	   font-family: monospace;
+	   font-size: x-large;
+	   font: bolder;
+	   text-decoration: none;
+	   text-align: center;
+	   text-shadow: aqua;
+}
+.table-body
+{
+    background-color: mistyrose;
+}
+.footer-font
+{
+    color: purple;
+    font-family: sans-serif;
+    font-size:large;
+    font-style: inherit;
+    font: bold;
+    clear: left;
+}
+
+
