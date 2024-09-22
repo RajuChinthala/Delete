@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.dao.DataAccessException;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Last Edited By : 
  * Version        : <V 1.0>
  ***********************************************************************/
-@RestController(value = "airline")
+@Controller(value = "airline")
 public class AirlineController {
 	@Autowired
 	private IAirlineService airlineService;
@@ -43,7 +44,11 @@ public class AirlineController {
 	List<String> flightNumberList=new ArrayList<String>();
 	List<BookingInformation> bookingsList=new ArrayList<BookingInformation>();
 	List<BookingInformation> passengersList=new ArrayList<BookingInformation>();
-	
+
+	@RequestMapping("/")
+	public String getIndex() {
+		return "index";
+	}
 	
 	
 	/************************************************************************************
