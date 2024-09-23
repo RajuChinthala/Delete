@@ -11,7 +11,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
           <br></br>
           <br></br>
@@ -20,7 +20,7 @@
           <h2>
            ${errorMessage}
           </h2><br></br>
-          <a href="showAdminHomePage.obj">Go to Admin Home</a>
+          <a href="showAdminHomePage">Go to Admin Home</a>
       </div> <!-- middle-wrapper end-->
 
 </div>

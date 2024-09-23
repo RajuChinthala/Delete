@@ -44,7 +44,7 @@
 <h1 align="center" class="classFont">Booking Information Details Form</h1>
 <table align="center" border="1">
 	<form:form method="post" modelAttribute="bookingDetailsFormAttribute"
-		action="showBookingFormForConfirm.obj" id="bookingDetailsForm">
+		action="showBookingFormForConfirm" id="bookingDetailsForm">
 		<tr>
 			<td>Customer Email:</td>
 			<td><form:input path="customerEmail" id="customerEmail"
@@ -95,7 +95,7 @@
 	<h2 align="center">Confirm Booking Information</h2>
 	<table border="1" align="center">
 		<form:form method="post" modelAttribute="bookingDetailsFormAttribute"
-			action="addBookingDetails.obj">
+			action="addBookingDetails">
 			<tr>
 			     <th>Flight Number</th>
 				<th>Customer Email</th>

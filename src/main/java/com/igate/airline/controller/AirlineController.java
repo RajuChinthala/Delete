@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpSession;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.dao.DataAccessException;
@@ -16,9 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.igate.airline.bean.BookingInformation;
 import com.igate.airline.bean.FlightInformation;
@@ -26,7 +24,6 @@ import com.igate.airline.bean.Login;
 import com.igate.airline.bean.ViewFlights;
 import com.igate.airline.exception.AirlineException;
 import com.igate.airline.service.IAirlineService;
-import org.springframework.web.bind.annotation.RestController;
 
 /************************************************************************************
  *Class Name      : AirlineController
@@ -36,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Last Edited By : 
  * Version        : <V 1.0>
  ***********************************************************************/
-@Controller(value = "airline")
+@Controller
 public class AirlineController {
 	@Autowired
 	private IAirlineService airlineService;
@@ -45,7 +42,7 @@ public class AirlineController {
 	List<BookingInformation> bookingsList=new ArrayList<BookingInformation>();
 	List<BookingInformation> passengersList=new ArrayList<BookingInformation>();
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String getIndex() {
 		return "index";
 	}
@@ -205,7 +202,7 @@ public class AirlineController {
 			return jspPage;
 		}
 	@RequestMapping("showAddOrUpdate")
-	public String showAddOrUpdate(HttpSession session,Model model)
+	public String showAddOrUpdate(HttpSession session, Model model)
 	{
 		String jspPage=null;
 		String flag=null;
@@ -1534,14 +1531,14 @@ public class AirlineController {
 	 * Modified on Date:
 	 * Modifications:
 	 *****************************************************************************************/
-	@RequestMapping("showHomePage")
+	@RequestMapping("/showHomePage")
 	public String showHomePage(HttpSession session)
 	{
 		session.invalidate();
 		return "ARS_Home_Page";
 		
 	}
-	@RequestMapping(value="showAbout")
+	@RequestMapping(value="/showAbout")
 	public String showAbout()
 	{
 		return "ARS_About";

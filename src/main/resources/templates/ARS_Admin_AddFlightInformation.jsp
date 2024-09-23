@@ -25,11 +25,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/static//css/jquery-ui.css">
-<script src="${pageContext.request.contextPath}/static//js/jquery-1.9.1.js"></script>
-<script src="${pageContext.request.contextPath}/static//js/jquery-ui.js"></script>
-<script src="${pageContext.request.contextPath}/static//js/iGateCommon.js"></script>
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
+<link rel="stylesheet" href="./css/jquery-ui.css">
+<script src="./js/jquery-1.9.1.js"></script>
+<script src="./js/jquery-ui.js"></script>
+<script src="./js/iGateCommon.js"></script>
 
 <script>
   $(function() {
@@ -48,12 +48,12 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"/>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 
 <h1 align="center" class="classFont">Add Flight Information Form</h1>
 <form:form method="post" modelAttribute="flightInformation"
-	action="addFlightInformation.obj" id="insertFlightInfo">
+	action="addFlightInformation" id="insertFlightInfo">
 
 	<table border="1" align="center">
 

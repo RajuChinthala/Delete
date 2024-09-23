@@ -46,10 +46,10 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
       
-<c:url var="myAction" value="showUpdateFlightInformation.obj" />
+<c:url var="myAction" value="showUpdateFlightInformation" />
 
 <h1 align="center">Update Flight Information</h1>
 <form:form method="post" action="${myAction}" modelAttribute="flightInformation">
@@ -74,7 +74,7 @@
 </form:form>
 <c:if test="${flightInformation.departureCity!=null}">
 <h1 align="center" class="classFont">Flight Information</h1>
- <form:form method="post" modelAttribute="flightInformation" action="updateFlightInformation.obj" id="updateFlightInfo">
+ <form:form method="post" modelAttribute="flightInformation" action="updateFlightInformation" id="updateFlightInfo">
  
  <table border=1 align="center" class="table-body">
     
@@ -148,7 +148,7 @@
 </c:if>
 <c:if test="${updateMsg!=null}">
      <h2 align="center">${updateMsg}</h2>
-     <h2 align="center"><a href="showAdminHomePage.obj">Go Back To Admin Home</a></h2>
+     <h2 align="center"><a href="showAdminHomePage">Go Back To Admin Home</a></h2>
 </c:if>
 <c:if test="${deleteMessage!=null}">
      <h2 align="center">${deleteMessage}</h2>

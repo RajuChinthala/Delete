@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Back to Home</title>
 </head>
@@ -18,11 +18,11 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"/>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 
      <h2 align="center" class="classFont"> ${errorMsg}
-<a href="adminBookingPageError.obj">Go back</a></h2>
+<a href="adminBookingPageError">Go back</a></h2>
    </div> <!-- middle-wrapper end-->
 
 </div>

@@ -4,19 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <title>Insert title here</title>
 </head>
 <body>
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <h3 align="center" class="classFont"> Flight does not exist on that date,Please select again </h3>
 <br></br>
 Go back to select again
-<a href="getFlightInformationPageAdmin.obj">Click Here</a>
+<a href="getFlightInformationPageAdmin">Click Here</a>
 </div> <!-- middle-wrapper end-->
 
 </div>

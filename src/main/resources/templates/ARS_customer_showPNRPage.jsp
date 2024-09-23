@@ -7,18 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PNR page</title>
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
-<!--<script src="/AirlineProject/js/iGateCommon.js" type="text/javascript"></script>
---></head>
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
+<script src="./js/iGateCommon.js" type="text/javascript"></script>
+</head>
 <body>
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 
 <h1 align="center" class="classFont">View PNR Status</h1>
-<c:url var="myAction" value="getPNRdetails.obj" />
+<c:url var="myAction" value="getPNRdetails" />
 <table align="center">
 <form:form method="post" modelAttribute="bookingInformation" action="${myAction}">
 <tr>
@@ -36,7 +36,7 @@
 <c:if test="${check!=false}">
 <h1 align="center" class="classFont">Customer Information</h1>
 
-	<form:form method="post" modelAttribute="bookingInformation" action="deleteDetails.obj" id="customerStatusForm">
+	<form:form method="post" modelAttribute="bookingInformation" action="deleteDetails" id="customerStatusForm">
 	<table border="1" align="center" cellpadding="1" cellspacing="1">
 <tr>
   <th>Flight number</th>

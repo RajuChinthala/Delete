@@ -22,9 +22,9 @@ Modified By : <Snigdha Kamath> on <Thu,19 Dec>
 %>
 <html>
 <head>
-<script src="${pageContext.request.contextPath}/static//js/iGateCommon.js" type="text/javascript"></script>
+<script src="./js/iGateCommon.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet"
+<link href="./css/iGate.css" rel="stylesheet"
 	type="text/css" />
 <title>Login Page</title>
 </head>
@@ -33,7 +33,7 @@ Modified By : <Snigdha Kamath> on <Thu,19 Dec>
 	flush="true"></jsp:include>
 <div class="body-wrapper">
 <div class="left-wrapper"><img alt="image"
-	src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg"
+	src="./images/ARS_AdminHomePage.jpg"
 	width="100%" height="100%"></div>
 <div class="middle-wrapper"><br></br>
 <br></br>
@@ -46,7 +46,7 @@ Modified By : <Snigdha Kamath> on <Thu,19 Dec>
   %>
 
 <h1 align="center" class="classFont">Admin Login</h1>
-<c:url var="myAction" value="checkLogin.obj" /> 
+<c:url var="myAction" value="checkLogin" />
 <form:form	method="post" modelAttribute="login" action="${myAction}" id="loginPage">
 	<table align="center">
 		<tr>

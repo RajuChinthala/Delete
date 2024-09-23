@@ -7,11 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="${pageContext.request.contextPath}/static//js/iGateCommon.js" type="text/javascript"></script>
+<script src="./js/iGateCommon.js" type="text/javascript"></script>
  <link rel="stylesheet" href="../css/jquery-ui.css">
- <link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
-  <script src="${pageContext.request.contextPath}/static//js/jquery-1.9.1.js"></script>
-  <script src="${pageContext.request.contextPath}/static//js/jquery-ui.js"></script>
+ <link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
+  <script src="./js/jquery-1.9.1.js"></script>
+  <script src="./js/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script>
   $(function() {
@@ -37,9 +37,9 @@
    <div class="body-wrapper">
        <div class="left-wrapper"><img alt="image" src="../images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
-<a href="showAdminHomePage.obj">Go back to home page</a>
+<a href="showAdminHomePage">Go back to home page</a>
 <h1 align="center" class="classFont">Search Flight Information</h1>
-<c:url var="myAction" value="showFlightInformationAdmin.obj" />
+<c:url var="myAction" value="showFlightInformationAdmin" />
  <form:form name="frmSearchFlight" id="frmSearchFlight" method="post"  modelAttribute="viewFlights" action="${myAction}" >
    <table align="center">
      <tr>

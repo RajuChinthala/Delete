@@ -12,25 +12,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <title>Admin Manage Page</title>
 </head>
 <body>
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
           <br></br>
           <br></br>
           <br></br>
           <br></br>
-          <form action="${pageContext.request.contextPath}/static//airline/showFlightOrLogin.obj">
-            <h1 align="center" class="classFont"><a href="showAdminAddPage.obj">Add Flight Information</a></h1>
+          <form action="./showFlightOrLogin">
+            <h1 align="center" class="classFont"><a href="showAdminAddPage">Add Flight Information</a></h1>
             <br></br>
             <br></br>
             <br></br>
-            <h1 align="center" class="classFont"><a href="showUpdateAdminPage.obj">Update Flight Information</a></h1>
+            <h1 align="center" class="classFont"><a href="showUpdateAdminPage">Update Flight Information</a></h1>
          </form>
       </div> <!-- middle-wrapper end-->
 

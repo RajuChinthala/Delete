@@ -38,7 +38,7 @@
       <div class="left-wrapper"><img alt="image" src="../images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <h1 align="center" class="classFont">Search Flight Information</h1>
-<c:url var="myAction" value="showFlightInformationCustomer.obj" />
+<c:url var="myAction" value="showFlightInformationCustomer" />
  <form:form name="frmSearchFlight" id="frmSearchFlight" method="post"  modelAttribute="viewFlights" action="${myAction}" >
    <table align="center">
      <tr>

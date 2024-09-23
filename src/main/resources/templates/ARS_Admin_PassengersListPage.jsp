@@ -20,7 +20,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <%
 /************************************************************************************
@@ -31,9 +31,9 @@
  * Creation Date :	19-12-2013   
  ************************************************************************************/
 %>
-<a href="backToAdminHomePage.obj">Go To Home</a>
+<a href="backToAdminHomePage">Go To Home</a>
 <table align="center">
-<form:form method="post" id="adminBookings" modelAttribute="bookingInformation" action="checkAdminPassengerList.obj">
+<form:form method="post" id="adminBookings" modelAttribute="bookingInformation" action="checkAdminPassengerList">
 
 <tr>
   		<td>Flight Number:<form:label cssStyle="color:red" path="*">*</form:label></td>
@@ -64,7 +64,7 @@
 
 <c:if test="${passengersList!=null}">
 	<h1 align="center" class="classFont">Passengers Information</h1>
-	<display:table cellpadding="8" cellspacing="8" requestURI="checkAdminPassengerList.obj" id="list" export="false" defaultsort="2" name="${passengersList}" pagesize="5">
+	<display:table cellpadding="8" cellspacing="8" requestURI="checkAdminPassengerList" id="list" export="false" defaultsort="2" name="${passengersList}" pagesize="5">
 <display:column property="bookingId" title="Booking Id"  sortable="true" />
 <display:column property="flightNumber" title="Flight Number"   sortable="true"  />
 <display:column property="customerEmail" title="Email"  sortable="true" />

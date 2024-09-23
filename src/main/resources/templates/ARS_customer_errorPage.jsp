@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <title>Successful Cancellation</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
           <br></br>
           <br></br>
@@ -21,7 +21,7 @@
           <h2>
             ${errorMessage}
           </h2><br></br>
-          <a href="showPNRPage.obj">Go to PNR page</a>
+          <a href="showPNRPage">Go to PNR page</a>
       </div> <!-- middle-wrapper end-->
 
 </div>

@@ -27,10 +27,10 @@
 <div class="left-wrapper"> <img alt="image" src="../images/ARS_AdminHomePage.jpg" ></div>
 <div class="middle-wrapper">
 <h1 align="center" class="classFont">Flight Information</h1>
-<a href="getFlightInformationPageAdmin.obj">Go back to search again</a><br></br>
-<a href="showAdminHomePage.obj">Go back to home page</a>
+<a href="getFlightInformationPageAdmin">Go back to search again</a><br></br>
+<a href="showAdminHomePage">Go back to home page</a>
 									
-<display:table cellpadding="8"  cellspacing="8" requestURI="showFlightInformationAdmin.obj" id="list" export="false" defaultsort="2" name="${flightInfoList}" pagesize="2">
+<display:table cellpadding="8"  cellspacing="8" requestURI="showFlightInformationAdmin" id="list" export="false" defaultsort="2" name="${flightInfoList}" pagesize="2">
 <display:column property="flightNumber" title="Flight Number"  sortable="true" />
 <display:column property="airline" title="Airline"   sortable="true"  />
 <display:column property="departureCity" title="Departure City"  sortable="true" />

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static//css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <title>Admin Home Page</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"/>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="${pageContext.request.contextPath}/static//images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <form>
  <br></br>
@@ -34,13 +34,13 @@
  <table border="1" cellspacing="10" align="center">
 
     <tr>
-         <td><a href="${pageContext.request.contextPath}/static//airline/showAddOrUpdate.obj">Manage Flight Information</a></td>
-		 <td><a href="${pageContext.request.contextPath}/static//airline/getFlightInformationPageAdmin.obj" >View List of flights </a></td>
+         <td><a href="./showAddOrUpdate">Manage Flight Information</a></td>
+		 <td><a href="./getFlightInformationPageAdmin" >View List of flights </a></td>
 	</tr>
 	
 	<tr>
-     	<td><a href="${pageContext.request.contextPath}/static//airline/showAdminBookingDetailsPage.obj">View Bookings</a></td>
-     	<td><a href="${pageContext.request.contextPath}/static//airline/showAdminPassengerListPage.obj"">View Passenger List</a></td>
+     	<td><a href="./showAdminBookingDetailsPage">View Bookings</a></td>
+     	<td><a href="./showAdminPassengerListPage"">View Passenger List</a></td>
     </tr>
     
   </table>

@@ -32,9 +32,9 @@
    <div class="body-wrapper">
       <div class="left-wrapper"><img alt="image" src="/images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
-<a href="backToAdminHomePage.obj">Go To Home</a>
+<a href="backToAdminHomePage">Go To Home</a>
 <table align="center">
-<form:form method="post" id="adminBookings" modelAttribute="bookingInformation" action="checkAdminBookingDetails.obj">
+<form:form method="post" id="adminBookings" modelAttribute="bookingInformation" action="checkAdminBookingDetails">
 
 <tr>
   		<td>Flight Number:<form:label cssStyle="color:red" path="*">*</form:label></td>
@@ -67,7 +67,7 @@
 <c:if test="${bookingsList!=null}">
 	<h1 align="center" class="classFont">Booking Information</h1>
 		
-<display:table cellpadding="10" cellspacing="10" requestURI="checkAdminBookingDetails.obj" id="list" export="false" defaultsort="2" name="${bookingsList}" pagesize="2">
+<display:table cellpadding="10" cellspacing="10" requestURI="checkAdminBookingDetails" id="list" export="false" defaultsort="2" name="${bookingsList}" pagesize="2">
 <display:column property="bookingId" title="Booking Id"  sortable="true" />
 <display:column property="flightNumber" title="Flight Number"   sortable="true"  />
 <display:column property="numberOfPassengers" title="No Of Passengers"  sortable="true" />

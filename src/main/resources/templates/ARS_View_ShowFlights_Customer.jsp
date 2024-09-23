@@ -24,9 +24,9 @@
       <div class="left-wrapper"><img alt="image" src="/images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <h1 align="center" class="classFont">Flight Information</h1>
-<a href="getFlightInformationPageCustomer.obj">Go back</a>
+<a href="getFlightInformationPageCustomer">Go back</a>
 <br></br>
-<c:url var="myAction" value="Booking.obj" />
+<c:url var="myAction" value="Booking" />
 <form:form method="post"  modelAttribute="bookFlightInfo"  action="${myAction}" >
 		<table border="1" align="center">
 			<tr>
