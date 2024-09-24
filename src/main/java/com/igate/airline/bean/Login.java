@@ -16,10 +16,16 @@ package com.igate.airline.bean;
  *
  */
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
-import org.springframework.stereotype.Component;
+import lombok.Data;
 
-@Component("login")
+@Data
+@Entity
+@Table(name="user_master")
 public class Login {
 
     @Override
@@ -27,30 +33,18 @@ public class Login {
         return "Login [password=" + password + ", userName=" + userName + "]";
     }
 
+    @Id
+    @Column(name = "user_id")
+    private int user_id;
+
     @NotEmpty(message = "UserName is mandatory")
-
+    @Column(name = "user_name")
     private String userName;
-
-
     @NotEmpty(message = "Password is mandatory")
-
+    @Column(name = "password")
     private String password;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+    @Column(name = "role")
+    private String role;
 
 }

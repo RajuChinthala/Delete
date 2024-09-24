@@ -5,10 +5,12 @@ import com.igate.airline.bean.FlightInformation;
 import com.igate.airline.bean.Login;
 import com.igate.airline.bean.ViewFlights;
 import com.igate.airline.exception.AirlineException;
+import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
 import java.util.List;
 
+@Repository
 public interface IAirlineDao {
     List<String> getFlightNumbers();
 

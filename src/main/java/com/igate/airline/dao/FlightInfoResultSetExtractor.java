@@ -49,7 +49,7 @@ public class FlightInfoResultSetExtractor implements ResultSetExtractor<FlightIn
         uDeptDate.setIntDay(c.get(c.DATE));
         uDeptDate.setIntMonth(c.get(c.MONTH));
         uDeptDate.setIntYear(c.get(c.YEAR));
-        flightInformation.setuDepartureDate(uDeptDate);
+        flightInformation.setUDepartureDate(uDeptDate);
 
         Calendar c1 = Calendar.getInstance();
         c1.setTime(arrivalDate);
@@ -57,7 +57,7 @@ public class FlightInfoResultSetExtractor implements ResultSetExtractor<FlightIn
         uArrivalDate.setIntDay(c1.get(c1.DATE));
         uArrivalDate.setIntMonth(c1.get(c1.MONTH));
         uArrivalDate.setIntYear(c1.get(c1.YEAR));
-        flightInformation.setuArrivalDate(uArrivalDate);
+        flightInformation.setUArrivalDate(uArrivalDate);
 
         flightInformation.setDepartureDate(deptDate);
         flightInformation.setArrivalDate(arrivalDate);

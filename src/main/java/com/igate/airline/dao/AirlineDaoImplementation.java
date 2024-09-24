@@ -40,12 +40,19 @@ public class AirlineDaoImplementation implements IAirlineDao {
         myLogger = Logger.getLogger("LoggingInterceptor.class");
     }
 
-    @PostConstruct
+/*    @PostConstruct
     public void init() {
-        simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS location_master (locationId INT, locationCity VARCHAR(255), locationState VARCHAR(255), locationZipCode VARCHAR(255),  PRIMARY KEY (locationId))");
+        myLogger.info("---------start location_master creation-------");
+        //simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS location_master (location_id INT, location_name VARCHAR(255), location_city VARCHAR(255), location_state VARCHAR(255), location_zipCode VARCHAR(255),  PRIMARY KEY (location_id))");
         simpleJdbcTemplate.execute("INSERT INTO location_master (locationId, locationCity, locationState, locationZipCode) VALUES " +
                 "(1,'HYD','TG','94536'), (2,'PUNE','MH','94536')");
-    }
+        myLogger.info("---------end location_master creation-------");
+        myLogger.info("---------start user_master creation-------");
+        //simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS user_master (user_id INT, user_name VARCHAR(255), password VARCHAR(255), role VARCHAR(255), PRIMARY KEY (user_id))");
+        simpleJdbcTemplate.execute("INSERT INTO user_master (user_id, user_name, password, role) VALUES " +
+                "(1,'RAJU','RAJU', 'admin'), (2,'PRAGYAN','PRAGYAN','admin')");
+        myLogger.info("---------end user_master creation-------");
+    }*/
 
     /****************************************************************************************
      * File : AirlineDaoImplementation .java
@@ -211,7 +218,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         };
         String role = simpleJdbcTemplate.queryForObject(sql, mapper, params);
 
-        if ("admin".equals(role)) {
+        if ("admin".equalsIgnoreCase(role)) {
             userPresent = true;
         }
 
@@ -234,14 +241,14 @@ public class AirlineDaoImplementation implements IAirlineDao {
     public List<FlightInformation> viewFlightInformation(ViewFlights viewFlights) {
         List<FlightInformation> flightList = new ArrayList<FlightInformation>();
         java.sql.Date deptDate = null;
-	  /*	SELECT flight_number,airline,departure_city,arrival_city departure_date,arrival_date,departure_time,arrival_time,first_seat_fare,buss_seatfare 
+	  /*	SELECT flight_number,airline,departure_city,arrival_city departure_date,arrival_date,departure_time,arrival_time,first_class_seat_fare,business_class_seat_fare 
 		 FROM flight_information_master WHERE flight_number='jr910' and departure_city='bangalore' and arrival_city='hyd'; */
 
         String sql = "SELECT flight_number,airline," +
                 "departure_city,arrival_city," +
                 "departure_date,arrival_date," +
                 "departure_time,arrival_time," +
-                "first_seat_fare,buss_seatfare " +
+                "first_class_seat_fare,business_class_seat_fare " +
                 "FROM flight_information_master " +
                 "WHERE departure_date=? and departure_city=? and arrival_city=? ";
         myLogger.info(sql);
@@ -407,7 +414,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         int arrDay;
         int arrMonth;
         int arrYear;
-        String sql = "INSERT INTO FLIGHT_INFORMATION_MASTER VALUES(?,?,?,?,?,?,?,?,?,?,?,?,100,1)";
+        String sql = "INSERT INTO FLIGHT_INFORMATION_MASTER VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         myLogger.info(sql);
         deptDate = flightInformation.getDepartureDate();
         Calendar calender = Calendar.getInstance();
@@ -449,10 +456,12 @@ public class AirlineDaoImplementation implements IAirlineDao {
         java.sql.Date sqlArrDate = new java.sql.Date(date1.getTime());
         Object[] params = new Object[]{
                 flightInformation.getFlightNumber(), flightInformation.getAirline(),
-                flightInformation.getDepartureCity(), flightInformation.getArrivalCity(),
-                sqlDepDate, sqlArrDate, flightInformation.getDepartureTime(), flightInformation.getArrivalTime(),
+                flightInformation.getArrivalCity(), sqlArrDate, flightInformation.getArrivalTime(),
+                flightInformation.getDepartureCity(), sqlDepDate, flightInformation.getDepartureTime(),
                 flightInformation.getFirstSeatNumber(), flightInformation.getFirstSeatFare(),
-                flightInformation.getBusinessSeatNumber(), flightInformation.getBusinessSeatFare()};
+                flightInformation.getBusinessSeatNumber(), flightInformation.getBusinessSeatFare(),
+                100, 1
+        };
         int update = simpleJdbcTemplate.update(sql, params);
         if (update == 0) {
             status = false;
@@ -505,8 +514,8 @@ public class AirlineDaoImplementation implements IAirlineDao {
     @SuppressWarnings("unchecked")
     public FlightInformation getFlightInformationById(String flightNumber) {
         String sql = "SELECT  flight_number,departure_city,arrival_city," +
-                "departure_date,arrival_date,departure_time,arrival_time,first_seat," +
-                "first_seat_fare,buss_seat,buss_seatfare from flight_information_master where flight_number=?";
+                "departure_date,arrival_date,departure_time,arrival_time,first_class_seat," +
+                "first_class_seat_fare,business_class_seat,business_class_seat_fare from flight_information_master where flight_number=?";
 
         myLogger.info(sql);
 
@@ -634,8 +643,8 @@ public class AirlineDaoImplementation implements IAirlineDao {
         int arrMonth;
         int arrYear;
         String sql = "UPDATE flight_information_master set departure_city=?,arrival_city=?," +
-                "departure_date=?,arrival_date=?,departure_time=?,arrival_time=?,first_seat=?," +
-                "first_seat_fare=?,buss_seat=?,buss_seatfare=? where flight_number=?";
+                "departure_date=?,arrival_date=?,departure_time=?,arrival_time=?,first_class_seat=?," +
+                "first_class_seat_fare=?,business_class_seat=?,business_class_seat_fare=? where flight_number=?";
         myLogger.info(sql);
         deptDate = flightInformation.getDepartureDate();
         Calendar calendar = Calendar.getInstance();
