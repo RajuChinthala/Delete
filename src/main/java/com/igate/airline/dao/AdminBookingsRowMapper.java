@@ -1,18 +1,16 @@
 package com.igate.airline.dao;
 
+import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.jdbc.core.RowMapper;
+public class AdminBookingsRowMapper implements RowMapper {
 
-import com.igate.airline.bean.BookingInformation;
+    public Object mapRow(ResultSet rs, int line) throws SQLException {
 
-public class AdminBookingsRowMapper implements RowMapper{
-	
-	public Object mapRow(ResultSet rs, int line) throws SQLException {
-		
-	    AdminBookingsResultSetExtractor extractor = new  AdminBookingsResultSetExtractor();
- 		Object obj = extractor.extractData(rs);
-		return  obj;
-	}
+        AdminBookingsResultSetExtractor extractor = new AdminBookingsResultSetExtractor();
+        Object obj = extractor.extractData(rs);
+        return obj;
+    }
 }

@@ -5,21 +5,13 @@ Author:sk815835
 Last Edited By :sk815835
 Version :1.2
 Created on : <Thu,19 Dec>
-Modified By : <Snigdha Kamath> on <Thu,19 Dec>
+Modified By : <Raju Chinthala> on <Thu,19 Dec>
 -->
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%
-/************************************************************************************
- * File          :  ARS_Admin_Login.jsp
- * Description   :  This is home page for admin after he logs in with his credentials.
- * Author		 :	sk815835				      
- * Creation Date :	17-12-2013   
- ************************************************************************************/
-%>
 <html>
 <head>
 <script src="./js/iGateCommon.js" type="text/javascript"></script>
