@@ -11,11 +11,11 @@
     <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <html>
 <head>
-<link href="../css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Passengers List</title>
-<!--<script src="../js/iGateCommon.js" type="text/javascript"></script>
---></head>
+<script src="./js/iGateCommon.js" type="text/javascript"></script>
+</head>
 <body>
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"></jsp:include>

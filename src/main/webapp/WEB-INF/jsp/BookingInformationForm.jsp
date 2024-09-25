@@ -27,9 +27,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Booking Information Form</title>
-<!--<script type="text/javascript"
-	src="../js/iGateCommon.js"></script>
---><link href="../css/iGate.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="./js/iGateCommon.js"></script>
+<link href="./css/iGate.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -37,7 +37,7 @@
 	flush="true"></jsp:include>
 <div class="body-wrapper">
 <div class="left-wrapper"><img alt="image"
-	src="../images/ARS_AdminHomePage.jpg" width="100%"
+	src="./images/ARS_AdminHomePage.jpg" width="100%"
 	height="100%"></div>
 <div class="middle-wrapper">
 

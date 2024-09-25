@@ -24,12 +24,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link href="../css/iGate.css" rel="stylesheet" type="text/css"  />
-<link rel="stylesheet" href="../css/jquery-ui.css">
-  <script src="../js/jquery-1.9.1.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <!--<script src="../js/iGateCommon.js"></script>
-  --><script>
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
+<link rel="stylesheet" href="./css/jquery-ui.css"/>
+  <script src="./js/jquery-1.9.1.js"/>
+  <script src="./js/jquery-ui.js"/>
+  <script src="./js/iGateCommon.js"/>
+  <script>
   $(function() {
     $( "#datepicker" ).datepicker({
       showButtonPanel: true

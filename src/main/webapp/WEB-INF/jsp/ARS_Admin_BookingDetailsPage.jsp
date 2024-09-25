@@ -12,11 +12,11 @@
 
 <html>
 <head>
-<link href="../css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Booking Details</title>
-<!--<script src="../js/iGateCommon.js" type="text/javascript"></script>
---></head>
+<script src="./js/iGateCommon.js" type="text/javascript"></script>
+</head>
 <body>
 <%
 /************************************************************************************

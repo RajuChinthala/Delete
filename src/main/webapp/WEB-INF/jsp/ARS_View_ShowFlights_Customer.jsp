@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="../css/iGate.css" rel="stylesheet" type="text/css"  />
+<link href="./css/iGate.css" rel="stylesheet" type="text/css"  />
 <title>View Flight Information</title>
 </head>
 <body>

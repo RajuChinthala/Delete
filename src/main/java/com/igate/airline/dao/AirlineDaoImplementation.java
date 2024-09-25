@@ -414,8 +414,6 @@ public class AirlineDaoImplementation implements IAirlineDao {
         int arrDay;
         int arrMonth;
         int arrYear;
-        String sql = "INSERT INTO FLIGHT_INFORMATION_MASTER VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        myLogger.info(sql);
         deptDate = flightInformation.getDepartureDate();
         Calendar calender = Calendar.getInstance();
         calender.setTime(deptDate);
@@ -450,10 +448,16 @@ public class AirlineDaoImplementation implements IAirlineDao {
 
             e.printStackTrace();
         }
-
         java.util.Date date1 = calender1.getTime();
-
         java.sql.Date sqlArrDate = new java.sql.Date(date1.getTime());
+        String sql = """
+                INSERT INTO FLIGHT_INFORMATION_MASTER (flight_number, airline,
+                arrival_city, arrival_date, arrival_time,
+                departure_city, departure_date, departure_time,
+                first_class_seat, first_class_seat_fare,
+                business_class_seat, business_class_seat_fare,
+                max_seats, is_active) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""";
+        myLogger.info(sql);
         Object[] params = new Object[]{
                 flightInformation.getFlightNumber(), flightInformation.getAirline(),
                 flightInformation.getArrivalCity(), sqlArrDate, flightInformation.getArrivalTime(),
