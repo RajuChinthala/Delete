@@ -17,11 +17,11 @@
     </parent>
 
     <properties>
-        <!--        <maven.compiler.source>17</maven.compiler.source>-->
-        <!--        <maven.compiler.target>17</maven.compiler.target>-->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>6.1.13</spring.version>
-        <!--        <jdk.version>17</jdk.version>-->
+               <maven.compiler.source>17</maven.compiler.source>
+              <maven.compiler.target>17</maven.compiler.target>
+              <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+              <spring.version>6.1.13</spring.version>
+               <jdk.version>17</jdk.version>
     </properties>
     <dependencies>
         <dependency>
