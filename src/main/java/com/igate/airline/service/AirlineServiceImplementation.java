@@ -6,7 +6,8 @@ import com.igate.airline.bean.Login;
 import com.igate.airline.bean.ViewFlights;
 import com.igate.airline.dao.IAirlineDao;
 import com.igate.airline.exception.AirlineException;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
@@ -25,13 +26,14 @@ import java.util.regex.Pattern;
  * Version        : <V 1.0>
  ***********************************************************************/
 @Component("airlineService")
+@Slf4j
 public class AirlineServiceImplementation implements IAirlineService {
     @Autowired
     IAirlineDao airlineDao;
-    static Logger myLogger = null;
+    //static Logger log = null;
 
     public AirlineServiceImplementation() {
-        myLogger = Logger.getLogger("LoggingInterceptor.class");
+       // log = Logger.getLogger("LoggingInterceptor.class");
     }
 
     /****************************************************************************************
@@ -208,7 +210,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             isPresent = airlineDao.validateUser(login);
         } catch (Exception e) {
-            myLogger.info(e.getMessage());
+            log.info(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
 
@@ -232,7 +234,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             bookingInformation = airlineDao.getCustomerDetailsById(bookingId);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
         return bookingInformation;
@@ -256,7 +258,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.cancelBooking(bookingId);
         } catch (Exception e) {
-            myLogger.info(e.getMessage());
+            log.info(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
 
@@ -281,7 +283,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.getValidPNR(bookingId);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
 
@@ -308,7 +310,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.updateCustomerDetails(bookingInformation);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
 
@@ -334,7 +336,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             flightInfoList = airlineDao.viewFlightInformation(viewFlights);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException("Some thechincal problem sorry for inconvience");
         }
         return flightInfoList;
@@ -358,7 +360,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             BookingsList = airlineDao.viewBookingDetails(flightNumber);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException("Some thechincal problem sorry for inconvience");
         }
         return BookingsList;
@@ -383,7 +385,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             PassengersList = airlineDao.viewPassengerListByFlightNo(flightNumber);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException("Some thechincal problem sorry for inconvience");
         }
         return PassengersList;
@@ -416,7 +418,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             bookingId = airlineDao.addBookingInformation(bookingInformationObject);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
         return bookingId;
@@ -448,7 +450,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.addFlightInformation(flightInformation);
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
         return status;
@@ -473,7 +475,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             flightList = airlineDao.getFlightNumbers();
         } catch (Exception e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException("Some thechincal problem sorry for inconvience");
         }
         return flightList;
@@ -501,7 +503,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             filghtInfo = airlineDao.getFlightInformationById(flightNumber);
         } catch (Exception exception) {
-            myLogger.error(exception.getMessage());
+            log.error(exception.getMessage());
             throw new AirlineException(exception.getMessage());
         }
         return filghtInfo;
@@ -527,7 +529,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.updateFlightInformation(flightInformation);
         } catch (ParseException e) {
-            myLogger.error(e.getMessage());
+            log.error(e.getMessage());
             throw new AirlineException(e.getMessage());
         }
         return status;
@@ -555,7 +557,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.deleteFlightInformation(flightNumber);
         } catch (Exception exception) {
-            myLogger.error(exception.getMessage());
+            log.error(exception.getMessage());
             throw new AirlineException(exception.getMessage());
         }
         return status;
@@ -584,7 +586,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             status = airlineDao.getStatusDelete(flightNumber);
         } catch (Exception exception) {
-            myLogger.error(exception.getMessage());
+            log.error(exception.getMessage());
             throw new AirlineException(exception.getMessage());
         }
 
@@ -612,7 +614,7 @@ public class AirlineServiceImplementation implements IAirlineService {
         try {
             locationList = airlineDao.getLocations();
         } catch (DataAccessException exception) {
-            myLogger.error(exception.getMessage());
+            log.error(exception.getMessage());
             throw new AirlineException("Some thechincal problem sorry for inconvience");
         }
         return locationList;

@@ -6,7 +6,7 @@ import com.igate.airline.bean.Login;
 import com.igate.airline.bean.ViewFlights;
 import com.igate.airline.exception.AirlineException;
 import jakarta.annotation.PostConstruct;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -30,28 +30,29 @@ import java.util.List;
  ***********************************************************************/
 
 @Component("airlineDao")
+@Slf4j
 public class AirlineDaoImplementation implements IAirlineDao {
 
     @Autowired
     JdbcTemplate simpleJdbcTemplate;
-    static Logger myLogger = null;
+    //static Logger log = null;
 
     public AirlineDaoImplementation() {
-        myLogger = Logger.getLogger("LoggingInterceptor.class");
+       // log = Logger.getLogger("LoggingInterceptor.class");
     }
 
-/*    @PostConstruct
+   /* @PostConstruct
     public void init() {
-        myLogger.info("---------start location_master creation-------");
-        //simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS location_master (location_id INT, location_name VARCHAR(255), location_city VARCHAR(255), location_state VARCHAR(255), location_zipCode VARCHAR(255),  PRIMARY KEY (location_id))");
-        simpleJdbcTemplate.execute("INSERT INTO location_master (locationId, locationCity, locationState, locationZipCode) VALUES " +
+        log.info("---------start location_master creation-------");
+        simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS location_master (location_id INT, location_name VARCHAR(255), location_city VARCHAR(255), location_state VARCHAR(255), location_zipCode VARCHAR(255),  PRIMARY KEY (location_id))");
+        simpleJdbcTemplate.execute("INSERT INTO location_master (location_id, location_city, location_state, location_zipCode) VALUES " +
                 "(1,'HYD','TG','94536'), (2,'PUNE','MH','94536')");
-        myLogger.info("---------end location_master creation-------");
-        myLogger.info("---------start user_master creation-------");
-        //simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS user_master (user_id INT, user_name VARCHAR(255), password VARCHAR(255), role VARCHAR(255), PRIMARY KEY (user_id))");
+        log.info("---------end location_master creation-------");
+        log.info("---------start user_master creation-------");
+        simpleJdbcTemplate.execute("CREATE TABLE IF NOT EXISTS user_master (user_id INT, user_name VARCHAR(255), password VARCHAR(255), role VARCHAR(255), PRIMARY KEY (user_id))");
         simpleJdbcTemplate.execute("INSERT INTO user_master (user_id, user_name, password, role) VALUES " +
                 "(1,'RAJU','RAJU', 'admin'), (2,'PRAGYAN','PRAGYAN','admin')");
-        myLogger.info("---------end user_master creation-------");
+        log.info("---------end user_master creation-------");
     }*/
 
     /****************************************************************************************
@@ -74,7 +75,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         int validPNR = 0;
         boolean statusPNR = false;
         sql = "SELECT 1 FROM booking_information_master WHERE booking_id=? AND is_active=1";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{bookingId};
         validPNR = simpleJdbcTemplate.update(sql, params);
 
@@ -109,7 +110,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         String sql = "";
 
         sql = "SELECT flight_number,source_city,destination_city,customer_email,no_of_passengers,total_fare,booking_id FROM booking_information_master WHERE booking_id=?";
-        myLogger.info(sql);
+        log.info(sql);
         RowMapper mapper = new RowMapper() {
             public BookingInformation mapRow(ResultSet rs, int rowNum) throws SQLException {
                 BookingInformation bookingInfo = new BookingInformation();
@@ -155,7 +156,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         boolean status = false;
         String sql = "";
         sql = "UPDATE booking_information_master SET is_active=0 WHERE booking_id=?";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{bookingId};
         update = simpleJdbcTemplate.update(sql, params);
         if (update == 0) {
@@ -188,7 +189,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         String sql = "";
 
         sql = "UPDATE booking_information_master SET customer_email=? WHERE booking_id=?";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{bookingInformation.getCustomerEmail(), bookingInformation.getBookingId()};
         update = simpleJdbcTemplate.update(sql, params);
         if (update == 0) {
@@ -204,7 +205,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         boolean userPresent = false;
         String sql = "";
         sql = "Select role from  user_master where user_name=? AND password=?";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = {login.getUserName(), login.getPassword()};
         RowMapper<String> mapper = new RowMapper<String>() {
             @Override
@@ -251,11 +252,11 @@ public class AirlineDaoImplementation implements IAirlineDao {
                 "first_class_seat_fare,business_class_seat_fare " +
                 "FROM flight_information_master " +
                 "WHERE departure_date=? and departure_city=? and arrival_city=? ";
-        myLogger.info(sql);
+        log.info(sql);
         deptDate = new java.sql.Date(viewFlights.getDate().getTime());
         Object[] params = new Object[]{deptDate, viewFlights.getSource(), viewFlights.getDestination()};
         flightList = (List<FlightInformation>) simpleJdbcTemplate.query(sql, new FlightInfoRowMapper(), params);
-        myLogger.info("Retrieved flight information");
+        log.info("Retrieved flight information");
         return flightList;
     }
 
@@ -277,10 +278,10 @@ public class AirlineDaoImplementation implements IAirlineDao {
     @SuppressWarnings("unchecked")
     public List<BookingInformation> viewBookingDetails(String flightNumber) {
         String sql = "SELECT booking_id,no_of_passengers,seat_numbers,flight_number,source_city,destination_city FROM Booking_Information_Master WHERE flight_number=? AND is_active=1";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{flightNumber};
         List<BookingInformation> BookingsList = (List<BookingInformation>) simpleJdbcTemplate.query(sql, new AdminBookingsRowMapper(), params);
-        myLogger.info("Retreived booking datails");
+        log.info("Retreived booking datails");
         return BookingsList;
     }
 
@@ -302,10 +303,10 @@ public class AirlineDaoImplementation implements IAirlineDao {
     @Override
     public List<BookingInformation> viewPassengerListByFlightNo(String flightNumber) {
         String sql = "SELECT booking_id,flight_number,customer_email,credit_card_info,no_of_passengers,class_type,total_fare,source_city,destination_city FROM Booking_Information_Master WHERE flight_number=? AND is_active=1";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{flightNumber};
         List<BookingInformation> PassengersList = (List<BookingInformation>) simpleJdbcTemplate.query(sql, new AdminPassengerListRowMapper(), params);
-        myLogger.info("Retreived passengar list");
+        log.info("Retreived passengar list");
         return PassengersList;
 
     }
@@ -342,12 +343,12 @@ public class AirlineDaoImplementation implements IAirlineDao {
 
 
         sequence = "select booking_sequence.nextval from dual";
-        myLogger.info(sequence);
+        log.info(sequence);
         String bookingId = (String) simpleJdbcTemplate.queryForObject(sequence, String.class);
 
         for (int count = 1; count <= numberOfPassengers; count++) {
             seatGenerate = "select seat_sequence.nextval from dual";
-            myLogger.info(sequence);
+            log.info(sequence);
 
             seat_sequence = (String) simpleJdbcTemplate.queryForObject(seatGenerate, String.class);
             str = str + seat_sequence + ",";
@@ -355,7 +356,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         String seatNumbers = str.substring(str.length() - (str.length() - 4), (str.length() - 1));
 
         String sql = "INSERT INTO BOOKING_INFORMATION_MASTER VALUES(?,?,?,?,?,?,?,?,?,?,1)";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{
                 bookingId,
                 bookingInformationObject.getCustomerEmail(),
@@ -457,7 +458,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
                 first_class_seat, first_class_seat_fare,
                 business_class_seat, business_class_seat_fare,
                 max_seats, is_active) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{
                 flightInformation.getFlightNumber(), flightInformation.getAirline(),
                 flightInformation.getArrivalCity(), sqlArrDate, flightInformation.getArrivalTime(),
@@ -472,7 +473,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         } else {
             status = true;
         }
-        myLogger.info("Added flight information");
+        log.info("Added flight information");
         return status;
 
     }
@@ -495,7 +496,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
 
     public List<String> getFlightNumbers() {
         String sql = "SELECT FLIGHT_NUMBER FROM flight_information_master ORDER BY FLIGHT_NUMBER";
-        myLogger.info(sql);
+        log.info(sql);
         List flightNumberList = simpleJdbcTemplate.query(sql, new FlightNumberRowMapper());
         return flightNumberList;
 
@@ -521,7 +522,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
                 "departure_date,arrival_date,departure_time,arrival_time,first_class_seat," +
                 "first_class_seat_fare,business_class_seat,business_class_seat_fare from flight_information_master where flight_number=?";
 
-        myLogger.info(sql);
+        log.info(sql);
 
         RowMapper mapper = new RowMapper() {
             public FlightInformation mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -577,7 +578,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
     public List<String> getLocations() {
 
         String sql = "SELECT location_name FROM location_master ORDER BY location_name";
-        myLogger.info(sql);
+        log.info(sql);
         List locationsList = simpleJdbcTemplate.query(sql, new LocationsRowMapper());
         return locationsList;
     }
@@ -588,7 +589,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         boolean statusdel = false;
 
         String sql = "SELECT count(booking_id) FROM BOOKING_INFORMATION_MASTER WHERE flight_number=?";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{flightNumber};
         int checkDelStatus = simpleJdbcTemplate.update(sql, params);
 
@@ -606,7 +607,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         boolean status = false;
 
         String sql = "UPDATE Flight_INFORMATION_MASTER SET IS_ACTIVE=0 WHERE  flight_number=?";
-        myLogger.info(sql);
+        log.info(sql);
         Object[] params = new Object[]{flightNumber};
         int delete = simpleJdbcTemplate.update(sql, params);
         if (delete == 0) {
@@ -649,7 +650,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         String sql = "UPDATE flight_information_master set departure_city=?,arrival_city=?," +
                 "departure_date=?,arrival_date=?,departure_time=?,arrival_time=?,first_class_seat=?," +
                 "first_class_seat_fare=?,business_class_seat=?,business_class_seat_fare=? where flight_number=?";
-        myLogger.info(sql);
+        log.info(sql);
         deptDate = flightInformation.getDepartureDate();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(deptDate);
