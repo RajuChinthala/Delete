@@ -3,7 +3,7 @@
 ## Tech stack
 1. Springboot
 2. HTML, CCS, JS, JSP
-3. H2
+3. H2 (http://localhost:8080/iFly/h2-console/)
 
 ## Functionalities
 Customer
