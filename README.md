@@ -15,4 +15,11 @@ Admin
   - Add flight info
   - Update flight info
   - View bookings
-  - Passengers info 
+  - Passengers info
+
+#Endpoints
+http://localhost:8080/iFly/showHomePage
+http://localhost:8080/iFly/h2-console
+http://localhost:8080/iFly/actuator/health
+
+
