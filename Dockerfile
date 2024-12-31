@@ -4,6 +4,9 @@ FROM maven:3.9.8-eclipse-temurin-17 AS build
 # Set the working directory
 WORKDIR /app
 
+# Copy the WEB-INF/lib directory to include JSTL JAR files
+COPY src/main/webapp/WEB-INF/lib /app/WEB-INF/lib
+
 # Download and set up the Maven wrapper
 RUN mvn -N io.takari:maven:wrapper
 
@@ -37,3 +40,4 @@ EXPOSE 8080
 
 # Start the application
 CMD ["java", "-jar", "AirlineReservationSystem.war"]
+#CMD ["./mvnw", "spring-boot:run"]

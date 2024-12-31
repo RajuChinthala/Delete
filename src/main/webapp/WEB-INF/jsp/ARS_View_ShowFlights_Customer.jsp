@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -21,7 +21,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="/images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <h1 align="center" class="classFont">Flight Information</h1>
 <a href="getFlightInformationPageCustomer">Go back</a>
@@ -62,9 +62,7 @@
 					    <input name="firstSeatFare" type="hidden" value="${each.firstSeatFare}">
 					    <input name="businessSeatFare" type="hidden" value="${each.businessSeatFare}">
 					    <input type="submit" value="Book Ticket"></input>  					    
-				
-					
-					 </td>				
+					 </td>
 				</tr>
 			</c:forEach>
 

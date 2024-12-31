@@ -5,10 +5,10 @@
 <%@page import="java.util.List"%>
 <%@page import="com.igate.airline.bean.BookingInformation"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-    <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+ <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+ <%--<%@taglib prefix="display" uri="http://displaytag.sf.net"%>--%>
 
 <html>
 <head>
@@ -16,6 +16,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Booking Details</title>
 <script src="./js/iGateCommon.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#bookingTable').DataTable();
+    } );
+</script>
+
 </head>
 <body>
 <%
@@ -30,7 +39,7 @@
 <div class="site-wrapper">
       <jsp:include page="ARS_Header_Logout.jsp" flush="true"></jsp:include>
    <div class="body-wrapper">
-      <div class="left-wrapper"><img alt="image" src="/images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
+      <div class="left-wrapper"><img alt="image" src="./images/ARS_AdminHomePage.jpg" width="100%" height="100%" ></div>
       <div class="middle-wrapper">
 <a href="backToAdminHomePage">Go To Home</a>
 <table align="center">
@@ -66,7 +75,8 @@
 
 <c:if test="${bookingsList!=null}">
 	<h1 align="center" class="classFont">Booking Information</h1>
-		
+
+<%--
 <display:table cellpadding="10" cellspacing="10" requestURI="checkAdminBookingDetails" id="list" export="false" defaultsort="2" name="${bookingsList}" pagesize="2">
 <display:column property="bookingId" title="Booking Id"  sortable="true" />
 <display:column property="flightNumber" title="Flight Number"   sortable="true"  />
@@ -75,6 +85,29 @@
 <display:column property="departureCity" title="Departure City"  sortable="true" />
 <display:column property="arrivalCity" title="Arrival City"   sortable="true" />
 </display:table>
+--%>
+<table id="bookingTable" class="display" requestURI="checkAdminBookingDetails" cellpadding="10" cellspacing="10" id="list">
+        <thead>
+            <tr>
+                <th>Booking Id</th>
+                <th>Flight Number</th>
+                <th>No Of Passengers</th>
+                <th>Seat Numbers</th>
+                <th>Departure City</th>
+                <th>Arrival City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${bookingsList}">
+                <td th:text="${booking.bookingId}"></td>
+                <td th:text="${booking.flightNumber}"></td>
+                <td th:text="${booking.numberOfPassengers}"></td>
+                <td th:text="${booking.seatNumbers}"></td>
+                <td th:text="${booking.departureCity}"></td>
+                <td th:text="${booking.arrivalCity}"></td>
+            </tr>
+        </tbody>
+    </table>
 
 </c:if>
   </div> <!-- middle-wrapper end-->

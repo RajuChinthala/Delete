@@ -8,7 +8,7 @@ Created on : <Thu,19 Dec>
 Modified By : <Raju Chinthala> on <Thu,19 Dec>
 -->
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,7 +55,7 @@ Modified By : <Raju Chinthala> on <Thu,19 Dec>
 		</tr>
 		<tr>
 			<td><input type="button" value="Login"  onclick="ARS_loginValidation()"/></td>
-			<td><input type="reset" value="Reset" /></td>
+			<td><input type="reset" value="Reset" onclick="reset" onclick="resetAdminLogin()"/></td>
 		</tr>
 		</table>
 </form:form> <c:if test="${loginError!=null}">

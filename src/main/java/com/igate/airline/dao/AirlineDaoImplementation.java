@@ -77,16 +77,13 @@ public class AirlineDaoImplementation implements IAirlineDao {
         sql = "SELECT 1 FROM booking_information_master WHERE booking_id=? AND is_active=1";
         log.info(sql);
         Object[] params = new Object[]{bookingId};
-        validPNR = simpleJdbcTemplate.update(sql, params);
-
-        if (validPNR != 0) {
+        List<Integer> results = simpleJdbcTemplate.query(sql, params, (rs, rowNum) -> rs.getInt(1));
+        if (!results.isEmpty()) {
             statusPNR = true;
         } else {
             statusPNR = false;
         }
-
         return statusPNR;
-
     }
 
     /****************************************************************************************
@@ -240,7 +237,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
      * @return List<FlightInformation>
      **************************************************************************************/
     public List<FlightInformation> viewFlightInformation(ViewFlights viewFlights) {
-        List<FlightInformation> flightList = new ArrayList<FlightInformation>();
+        List<FlightInformation> flightList;
         java.sql.Date deptDate = null;
 	  /*	SELECT flight_number,airline,departure_city,arrival_city departure_date,arrival_date,departure_time,arrival_time,first_class_seat_fare,business_class_seat_fare 
 		 FROM flight_information_master WHERE flight_number='jr910' and departure_city='bangalore' and arrival_city='hyd'; */
@@ -255,7 +252,7 @@ public class AirlineDaoImplementation implements IAirlineDao {
         log.info(sql);
         deptDate = new java.sql.Date(viewFlights.getDate().getTime());
         Object[] params = new Object[]{deptDate, viewFlights.getSource(), viewFlights.getDestination()};
-        flightList = (List<FlightInformation>) simpleJdbcTemplate.query(sql, new FlightInfoRowMapper(), params);
+        flightList = simpleJdbcTemplate.query(sql, new FlightInfoRowMapper(), params);
         log.info("Retrieved flight information");
         return flightList;
     }
@@ -280,9 +277,9 @@ public class AirlineDaoImplementation implements IAirlineDao {
         String sql = "SELECT booking_id,no_of_passengers,seat_numbers,flight_number,source_city,destination_city FROM Booking_Information_Master WHERE flight_number=? AND is_active=1";
         log.info(sql);
         Object[] params = new Object[]{flightNumber};
-        List<BookingInformation> BookingsList = (List<BookingInformation>) simpleJdbcTemplate.query(sql, new AdminBookingsRowMapper(), params);
-        log.info("Retreived booking datails");
-        return BookingsList;
+        List<BookingInformation> bookingsList = (List<BookingInformation>) simpleJdbcTemplate.query(sql, new AdminBookingsRowMapper(), params);
+        log.info("Retrieved booking details {}", bookingsList);
+        return bookingsList;
     }
 
     /************************************************************************************

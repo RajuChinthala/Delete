@@ -425,9 +425,41 @@ function submitInformation()
 				document.getElementById("bookingDetailsForm").submit();
 			   		
 			}
-		
-		
-	
-		
-		
+}
+
+function resetAddFlightInfoForm() {
+    document.getElementById("insertFlightInfo").reset();
+    document.getElementById("fligthNumberError").innerHTML="";
+    document.getElementById("airlineError").innerHTML="";
+    document.getElementById("departureCityError").innerHTML="";
+    document.getElementById("arrivalCityError").innerHTML="";
+    document.getElementById("departureTimeError").innerHTML="";
+    document.getElementById("arrivalTimeError").innerHTML="";
+    document.getElementById("firstSeatNumberError").innerHTML="";
+    document.getElementById("firstSeatFareError").innerHTML="";
+    document.getElementById("businessSeatNumberError").innerHTML="";
+    document.getElementById("businessSeatFareError").innerHTML="";
+    document.getElementById("departureDateError").innerHTML="";
+    document.getElementById("arrivalDateError").innerHTML="";
+}
+
+function resetCustomerShowPNRForm() {
+
+}
+
+function resetAdminLogin() {
+    document.getElementById("loginPage").reset();
+    document.getElementById("spanUserName").innerHTML="";
+    document.getElementById("spanPassword").innerHTML="";
+}
+
+function resetAdminUpdateFlightInformation() {
+    document.getElementById("updateFlightInfo").reset();
+    document.getElementById("arrivalCityError").innerHTML="";
+    document.getElementById("departureTimeError").innerHTML="";
+    document.getElementById("arrivalTimeError").innerHTML="";
+    document.getElementById("firstSeatNumberError").innerHTML="";
+    document.getElementById("firstSeatFareError").innerHTML="";
+    document.getElementById("businessSeatNumberError").innerHTML="";
+    document.getElementById("businessSeatFareError").innerHTML="";
 }

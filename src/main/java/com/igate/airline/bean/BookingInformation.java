@@ -42,5 +42,6 @@ public class BookingInformation {
     @NotEmpty(message = "Select class type")
     @Column(name = "class_type")
     String classType;
-
+    @Column(name = "is_active")
+    int isActive;
 }
